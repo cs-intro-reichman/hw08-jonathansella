@@ -96,15 +96,21 @@ class PlayList {
      *  returns true. */
     public boolean add(int i, Track track) {
         //// replace the following statement with your code
-        if (this.size < this.maxSize && i >= 0 && i < this.size) { 
-            for (int j = this.size-1;  i <= j; j--) {
-            this.tracks[j+1] = this.tracks[j];    
+        if (i < 0 || i > size || size == maxSize ) {
+            return false;
+        } else if ( size == 0 || i == size) {
+            return add(track);
+        } else {
+            if (size == maxSize) {
+                return false;
             }
-            this.size++;
-            this.tracks[i] = track;
-            return true;
+           for (int j = size -1; j >= i ; j--) {
+                tracks[j+1] = tracks[j];
+           } 
+           tracks[i] = track;
+           size++;
+           return true;
         }
-        return false;
     }
      
     /** Removes the track in the given index from this list.
