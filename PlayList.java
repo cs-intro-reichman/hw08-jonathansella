@@ -82,7 +82,7 @@ class PlayList {
         //// replace the following statement with your code
         for (int i = 0; i < this.size; i++) {
             if (title.equals(this.tracks[i].getTitle())) {
-                return i+1;
+                return i;
             }
         }
         return -1;
