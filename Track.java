@@ -43,6 +43,14 @@ class Track {
     // Where seconds is always two digits. For example, "3:17" or "12:05".
     private String formattedDuration(int totalSeconds) {
         //// replace the following statement with your code
-        return "";
+        int minutes = totalSeconds/60;
+        int seconds = totalSeconds - minutes*60;
+        if (seconds < 10) {
+            String s = minutes + ":0" + seconds;
+        } else {
+            String s = minutes + ":" + seconds;
+        }
+    
+        return "s";
     }
 }
